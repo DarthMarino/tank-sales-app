@@ -1,22 +1,23 @@
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
 import './App.css';
+import { getAllSales, deleteSale, editSale } from './api'
+import {SaleForm} from './components'
+
 
 function App() {
+  
+  const [sales, setSales] = useState([])
+
+  useEffect(() => {
+    getAllSales.then(res => setSales(res))
+  }, [])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header className="App-container">
+        <div className="sales-container">
+        <SaleForm sales={sales} setSales={setSales} />
+        </div>
       </header>
     </div>
   );
