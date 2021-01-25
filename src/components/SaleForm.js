@@ -1,45 +1,185 @@
-import React from 'react'
-import { Form, Button, Input } from 'antd';
-import { createSale } from '../api'
+import React, { useState } from "react";
 
-const SaleForm = ({ form, sales, setSales }) => {
+import { createSale } from "../api";
+import { toast } from "react-toastify";
 
-  const { getFieldDecorator, validateFields, resetFields } = form;
+import "./SaleForm.css";
 
-  function handleSubmit(e) {
+const SaleForm = ({ sales, setSales }) => {
+  const [sale, setSale] = useState({
+    client: "",
+    location: "",
+    "140gls": 0,
+    "215gls": 0,
+    "265gls": 0,
+    "330gls": 0,
+    "410gls": 0,
+    "530gls": 0,
+    "600gls": 0,
+    lids: 0,
+    specialClient: false,
+  });
+  const handleChange = ({ target: { name, value, type } }) => {
+    if (type === "number") {
+      value = parseInt(value);
+    }
+    if (value === "on") {
+      value = true;
+    }
+    if (value === "off") {
+      value = false;
+    }
+    setSale({ ...sale, [name]: value });
+  };
+  // Validate Client
+  const handleSubmit = (e) => {
     e.preventDefault();
-    validateFields((err, values) => {
-      if (!err && values.sale) {
-        createNote(values.sale).then(res => {
-          const newSalesArray = sales.concat([res])
-          setNotes(newSalesArray)
-          toast.success('Added Successfully')
-          resetFields()
-        })
-      }
+
+    console.log(sale);
+    createSale(sale).then((res) => {
+      const newSalesArray = sales.concat([res]);
+      setSales(newSalesArray);
+      toast.success("Added Successfully");
     });
-  }
-  
-  
+  };
+
   return (
-    <Form style={{marginBottom: '25px'}} layout="horizontal" onSubmit={handleSubmit}>
-      <Form.Item>
-        {getFieldDecorator('sale', {
-        rules: [],
-        })(
-          <Input
-            className="sale-input"
-            size="large"
-            placeholder="Add New Sale"
-          />,
-          <Button>Create</Button>
-        )}
-      </Form.Item>
+    <form id="sale" style={{ marginBottom: "25px" }} onSubmit={handleSubmit}>
+      <h5 class="doc-row__title">Cliente</h5>
+      <label htmlFor="sale">
+        <input
+          id="client"
+          name="client"
+          className="nv-input"
+          placeholder="Introduzca el nombre"
+          onChange={handleChange}
+        />
+      </label>
+      <h5 class="doc-row__title">Location</h5>
+      <label htmlFor="sale">
+        <input
+          id="location"
+          name="location"
+          className="nv-input"
+          placeholder="Introduzca el nombre"
+          onChange={handleChange}
+        />
+      </label>
+      <table>
+        <tr>
+          <th>140gls</th>
+          <th>215gls</th>
+          <th>265gls</th>
+          <th>330gls</th>
+        </tr>
+        <tr>
+          <td>
+            <input
+              type="number"
+              id="140gls"
+              name="140gls"
+              className="nv-input"
+              placeholder="#"
+              onChange={handleChange}
+            />
+          </td>
+          <td>
+            <input
+              type="number"
+              id="215gls"
+              name="215gls"
+              className="nv-input"
+              placeholder="#"
+              onChange={handleChange}
+            />
+          </td>
+          <td>
+            <input
+              type="number"
+              id="265gls"
+              name="265gls"
+              className="nv-input"
+              placeholder="#"
+              onChange={handleChange}
+            />
+          </td>
+          <td>
+            <input
+              type="number"
+              id="330gls"
+              name="330gls"
+              className="nv-input"
+              placeholder="#"
+              onChange={handleChange}
+            />
+          </td>
+        </tr>
+      </table>
+      <table>
+        <tr>
+          <th>410gls</th>
+          <th>530gls</th>
+          <th>600gls</th>
+          <th>tapas</th>
+        </tr>
+        <tr>
+          {" "}
+          <td>
+            <input
+              type="number"
+              id="410gls"
+              name="410gls"
+              className="nv-input"
+              placeholder="#"
+              onChange={handleChange}
+            />
+          </td>
+          <td>
+            <input
+              type="number"
+              id="530gls"
+              name="530gls"
+              className="nv-input"
+              placeholder="#"
+              onChange={handleChange}
+            />
+          </td>
+          <td>
+            <input
+              type="number"
+              id="600gls"
+              name="600gls"
+              className="nv-input"
+              placeholder="#"
+              onChange={handleChange}
+            />
+          </td>
+          <td>
+            <input
+              type="number"
+              id="lids"
+              name="lids"
+              className="nv-input"
+              placeholder="#"
+              onChange={handleChange}
+            />
+          </td>
+        </tr>
+      </table>
 
-  </Form>
-  )
-}
-
-const WrappedSaleForm = Form.create({name: 'sales_form'})(SaleForm)
-
-export default WrappedSaleForm;
+      <h5 class="doc-row__title">¿Cliente Especial?</h5>
+      <label htmlFor="sale">
+        <input
+          type="checkbox"
+          id="specialClient"
+          name="specialClient"
+          className="nv-input"
+          placeholder="Introduzca el nombre"
+          onChange={handleChange}
+        />
+      </label>
+      <button type="submit">Create</button>
+    </form>
+  );
+};
+export default SaleForm;

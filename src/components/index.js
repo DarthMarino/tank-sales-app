@@ -1,4 +1,4 @@
-import SaleForm from './SaleForm'
-import SaleList from './SaleList'
+import SaleForm from "./SaleForm";
+import SaleList from "./SaleList";
 
-export { SaleList, SaleForm }
+export { SaleList, SaleForm };
