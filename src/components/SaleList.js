@@ -2,20 +2,25 @@ import React, { memo } from "react";
 import "./SaleList.css";
 const SaleList = memo(({ data, onRemove, onEdit }) => (
   <>
-    <table>
-      <tr>
-        <th>Cliente</th>
+    <h1>Lista de Pedidos</h1>
 
-        <th>140gls</th>
-        <th>215gls</th>
-        <th>265gls</th>
-        <th>330gls</th>
-        <th>410gls</th>
-        <th>530gls</th>
-        <th>600gls</th>
-        <th>Tapas</th>
-      </tr>
-    </table>
+    <div class="tbl-header">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <thead>
+          <tr>
+            <th>Cliente</th>
+            <th>140gls</th>
+            <th>215gls</th>
+            <th>265gls</th>
+            <th>330gls</th>
+            <th>410gls</th>
+            <th>530gls</th>
+            <th>600gls</th>
+            <th>Tapas</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
     {data &&
       data.map((sale) => (
         <div key={sale.ref.id} className="sale-row">

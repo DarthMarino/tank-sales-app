@@ -50,7 +50,6 @@ const SaleForm = ({ sales, setSales }) => {
         <input
           id="client"
           name="client"
-          className="nv-input"
           placeholder="Introduzca el nombre"
           onChange={handleChange}
         />
@@ -60,112 +59,100 @@ const SaleForm = ({ sales, setSales }) => {
         <input
           id="location"
           name="location"
-          className="nv-input"
-          placeholder="Introduzca el nombre"
+          placeholder="Introduzca la ubicacion"
           onChange={handleChange}
         />
       </label>
-      <table>
-        <tr>
-          <th>140gls</th>
-          <th>215gls</th>
-          <th>265gls</th>
-          <th>330gls</th>
-        </tr>
-        <tr>
-          <td>
-            <input
-              type="number"
-              id="140gls"
-              name="140gls"
-              className="nv-input"
-              placeholder="#"
-              onChange={handleChange}
-            />
-          </td>
-          <td>
-            <input
-              type="number"
-              id="215gls"
-              name="215gls"
-              className="nv-input"
-              placeholder="#"
-              onChange={handleChange}
-            />
-          </td>
-          <td>
-            <input
-              type="number"
-              id="265gls"
-              name="265gls"
-              className="nv-input"
-              placeholder="#"
-              onChange={handleChange}
-            />
-          </td>
-          <td>
-            <input
-              type="number"
-              id="330gls"
-              name="330gls"
-              className="nv-input"
-              placeholder="#"
-              onChange={handleChange}
-            />
-          </td>
-        </tr>
-      </table>
-      <table>
-        <tr>
-          <th>410gls</th>
-          <th>530gls</th>
-          <th>600gls</th>
-          <th>tapas</th>
-        </tr>
-        <tr>
-          {" "}
-          <td>
-            <input
-              type="number"
-              id="410gls"
-              name="410gls"
-              className="nv-input"
-              placeholder="#"
-              onChange={handleChange}
-            />
-          </td>
-          <td>
-            <input
-              type="number"
-              id="530gls"
-              name="530gls"
-              className="nv-input"
-              placeholder="#"
-              onChange={handleChange}
-            />
-          </td>
-          <td>
-            <input
-              type="number"
-              id="600gls"
-              name="600gls"
-              className="nv-input"
-              placeholder="#"
-              onChange={handleChange}
-            />
-          </td>
-          <td>
-            <input
-              type="number"
-              id="lids"
-              name="lids"
-              className="nv-input"
-              placeholder="#"
-              onChange={handleChange}
-            />
-          </td>
-        </tr>
-      </table>
+      <div className="flex-container">
+        <div className="tank-input">
+          <h5>140gls</h5>
+          <input
+            type="number"
+            id="140gls"
+            name="140gls"
+            className="nv-input"
+            placeholder="#"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="tank-input">
+          <h5>215gls</h5>
+          <input
+            type="number"
+            id="215gls"
+            name="215gls"
+            className="nv-input"
+            placeholder="#"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="tank-input">
+          <h5>265gls</h5>
+          <input
+            type="number"
+            id="265gls"
+            name="265gls"
+            className="nv-input"
+            placeholder="#"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="tank-input">
+          <h5>330gls</h5>
+          <input
+            type="number"
+            id="330gls"
+            name="330gls"
+            className="nv-input"
+            placeholder="#"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="tank-input">
+          <h5>410gls</h5>
+          <input
+            type="number"
+            id="410gls"
+            name="410gls"
+            className="nv-input"
+            placeholder="#"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="tank-input">
+          <h5>530gls</h5>
+          <input
+            type="number"
+            id="530gls"
+            name="530gls"
+            className="nv-input"
+            placeholder="#"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="tank-input">
+          <h5>6000gls</h5>
+          <input
+            type="number"
+            id="600gls"
+            name="600gls"
+            className="nv-input"
+            placeholder="#"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="tank-input">
+          <h5>Tapas</h5>
+          <input
+            type="number"
+            id="lids"
+            name="lids"
+            className="nv-input"
+            placeholder="#"
+            onChange={handleChange}
+          />
+        </div>
+      </div>
 
       <h5 class="doc-row__title">¿Cliente Especial?</h5>
       <label htmlFor="sale">
