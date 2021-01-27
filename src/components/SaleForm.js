@@ -45,7 +45,7 @@ const SaleForm = ({ sales, setSales }) => {
 
   return (
     <form id="sale" style={{ marginBottom: "25px" }} onSubmit={handleSubmit}>
-      <h5 class="doc-row__title">Cliente</h5>
+      <h1 class="doc-row__title">Cliente</h1>
       <label htmlFor="sale">
         <input
           id="client"
@@ -54,7 +54,7 @@ const SaleForm = ({ sales, setSales }) => {
           onChange={handleChange}
         />
       </label>
-      <h5 class="doc-row__title">Location</h5>
+      <h1 class="doc-row__title">Location</h1>
       <label htmlFor="sale">
         <input
           id="location"
@@ -154,7 +154,7 @@ const SaleForm = ({ sales, setSales }) => {
         </div>
       </div>
 
-      <h5 class="doc-row__title">¿Cliente Especial?</h5>
+      <h1 class="doc-row__title">¿Cliente Especial?</h1>
       <label htmlFor="sale">
         <input
           type="checkbox"

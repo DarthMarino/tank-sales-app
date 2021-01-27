@@ -1,31 +1,19 @@
-h1 {
-  font-size: 30px;
-  color: #fff;
-  text-transform: uppercase;
-  font-weight: 300;
-  text-align: center;
-  margin-bottom: 15px;
-}
 table {
-  width: 100%;
-  table-layout: fixed;
+  width: 750px;
+  border-collapse: collapse;
+  margin: 50px auto;
 }
 .tbl-header {
   background-color: rgba(255, 255, 255, 0.3);
 }
-.tbl-content {
-  height: 300px;
-  overflow-x: auto;
-  margin-top: 0px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-}
+
+td,
 th {
-  padding: 20px 15px;
-  text-align: center;
-  font-weight: 500;
-  font-size: 15px;
-  color: #fff;
-  text-transform: uppercase;
+  color: white;
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: left;
+  font-size: 18px;
 }
 
 /* demo styles */
@@ -36,8 +24,63 @@ body {
   background: linear-gradient(to right, #25c481, #25b7c4);
   font-family: "Roboto", sans-serif;
 }
-section {
-  margin: 50px;
+
+@media only screen and (max-width: 760px),
+  (min-device-width: 768px) and (max-device-width: 1024px) {
+  table {
+    width: 100%;
+  }
+
+  /* Force table to not be like tables anymore */
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+
+  /* Hide table headers (but not display: none;, for accessibility) */
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  tr {
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 40px;
+    background-color: rgba(255, 255, 255, 0.199);
+    border-radius: 15px;
+  }
+  .responsive-end {
+    border-bottom: none;
+  }
+  td {
+    /* Behave  like a "row" */
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 50%;
+  }
+
+  td:before {
+    /* Now like a table header */
+    position: absolute;
+
+    /* Top/left values mimic padding */
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+    /* Label the data */
+    content: attr(data-column);
+
+    font-weight: bold;
+  }
 }
 
 /* for custom scrollbar for webkit browser*/
