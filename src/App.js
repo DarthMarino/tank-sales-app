@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getAllSales, deleteSale, editSale, searchClient } from "./api";
+import { getAllSales, deleteSale, editSale } from "./api";
 import { SaleForm, SaleList } from "./components";
 import { ToastContainer, toast } from "react-toastify";
 

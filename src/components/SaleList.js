@@ -34,7 +34,7 @@ const SaleList = memo(({ data, onRemove, onEdit }) => (
                 onInput={(e) =>
                   onEdit(e, sale.ref.id, e.currentTarget.textContent)
                 }
-              ></p>*/}{" "}
+              ></p>*/}
               <td data-column="Cliente">{sale.data.client}</td>
               <td data-column="140gls">{sale.data["140gls"]}</td>
               <td data-column="215gls">{sale.data["215gls"]}</td>

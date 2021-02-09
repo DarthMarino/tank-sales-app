@@ -42,13 +42,12 @@ const SaleForm = ({ sales, setSales }) => {
       toast.success("Added Successfully");
     });
   };
-  function sendSearch(searchInput) {
-    const input = searchInput.toUpperCase();
-    console.log(searchClient(searchInput));
+  const sendSearch = (e) => {
+    console.log(searchClient(sale.client.toUpperCase()));
   }
   return (
     <form id="sale" style={{ marginBottom: "25px" }} onSubmit={handleSubmit}>
-      <h1 class="doc-row__title">Cliente</h1>
+      <h1 className="doc-row__title">Cliente</h1>
       <label htmlFor="sale">
         <input
           id="client"
@@ -56,11 +55,11 @@ const SaleForm = ({ sales, setSales }) => {
           placeholder="Introduzca el nombre"
           onChange={handleChange}
         />
-        <button type="button" onClick={sendSearch(sale.client)}>
+        <button type="button" onClick={sendSearch}>
           BuscaL
         </button>
       </label>
-      <h1 class="doc-row__title">Location</h1>
+      <h1 className="doc-row__title">Location</h1>
       <label htmlFor="sale">
         <input
           id="location"
@@ -160,7 +159,7 @@ const SaleForm = ({ sales, setSales }) => {
         </div>
       </div>
 
-      <h1 class="doc-row__title">¿Cliente Especial?</h1>
+      <h1 className="doc-row__title">¿Cliente Especial?</h1>
       <label htmlFor="sale">
         <input
           type="checkbox"
