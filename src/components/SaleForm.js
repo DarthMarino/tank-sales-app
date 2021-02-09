@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { createSale } from "../api";
+import { createSale, searchClient } from "../api";
 import { toast } from "react-toastify";
 
 import "./SaleForm.css";
@@ -42,7 +42,10 @@ const SaleForm = ({ sales, setSales }) => {
       toast.success("Added Successfully");
     });
   };
-
+  function sendSearch(searchInput) {
+    const input = searchInput.toUpperCase();
+    console.log(searchClient(searchInput));
+  }
   return (
     <form id="sale" style={{ marginBottom: "25px" }} onSubmit={handleSubmit}>
       <h1 class="doc-row__title">Cliente</h1>
@@ -53,6 +56,9 @@ const SaleForm = ({ sales, setSales }) => {
           placeholder="Introduzca el nombre"
           onChange={handleChange}
         />
+        <button type="button" onClick={sendSearch(sale.client)}>
+          BuscaL
+        </button>
       </label>
       <h1 class="doc-row__title">Location</h1>
       <label htmlFor="sale">
