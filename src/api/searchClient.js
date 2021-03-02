@@ -18,7 +18,8 @@ const searchClient = (value) =>
       )
     )
     .then((response) => {
-      return response;
+      const searchResult = response.data
+      return searchResult;
     })
     .catch((error) => console.warn("error", error.message));
 

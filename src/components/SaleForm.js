@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import VirtualList from 'react-tiny-virtual-list';
+
 import { createSale, searchClient } from "../api";
 import { toast } from "react-toastify";
 
@@ -19,6 +21,7 @@ const SaleForm = ({ sales, setSales }) => {
     lids: 0,
     specialClient: false,
   });
+  const [empty,setEmpty] = useState()
   const handleChange = ({ target: { name, value, type } }) => {
     if (type === "number") {
       value = parseInt(value);
@@ -42,9 +45,14 @@ const SaleForm = ({ sales, setSales }) => {
       toast.success("Added Successfully");
     });
   };
-  const sendSearch = (e) => {
-    console.log(searchClient(sale.client.toUpperCase()));
+  let sendResult = []
+  async function sendSearch(e){
+    sendResult = await searchClient(sale.client.toUpperCase())
+
+    console.log(sendResult.length)
+    console.log(sendResult)
   }
+  const data = ['A', 'B', 'C', 'D', 'E', 'F'];
   return (
     <form id="sale" style={{ marginBottom: "25px" }} onSubmit={handleSubmit}>
       <h1 className="doc-row__title">Cliente</h1>
@@ -56,9 +64,22 @@ const SaleForm = ({ sales, setSales }) => {
           onChange={handleChange}
         />
         <button type="button" onClick={sendSearch}>
-          BuscaL
+          Buscar
         </button>
       </label>
+      <VirtualList
+            width='100%'
+            height={600}
+            itemCount={sendResult.length}
+            itemSize={50}
+            renderItem={({index, style}) =>
+              <div key={index} style={style}> 
+                Nombre: {sendResult[index]}, Row: #{index}
+              </div>
+            }
+          />
+
+      
       <h1 className="doc-row__title">Location</h1>
       <label htmlFor="sale">
         <input
