@@ -7,7 +7,7 @@ h1 {
 }
 .App {
   text-align: center;
-  min-height: 100vh;
+  min-height: 70vh;
   display: flex;
   margin: 75px 0 25px;
   flex-direction: flex-start;
@@ -58,4 +58,23 @@ h1 {
 
 .tank-column {
   margin-right: 5px;
+}
+
+.menu-ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+}
+
+.menu-li {
+  display: block;
+  color: #000;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+.menu-li:hover {
+  background-color: #555;
+  color: white;
 }
